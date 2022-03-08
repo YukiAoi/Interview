@@ -111,5 +111,28 @@ git config --global --unset http.proxy
 git update-git-for-windows
 ```
 
+### 避免重复输入git账号和密码（凭证储存）
+在`.git/config`中，输入：
+
+```
+[credential]
+	helper = store
+```
+或者
+
+```
+[credential]
+	helper = cache
+```
+
+区别是cache临时的，store是永久的
+
+全局命令行：
+
+```
+git config --global credential.helper store
+git config --global credential.helper cache
+```
+
 ### 提交时使用personal access token代替password登录git
 [github官网](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
