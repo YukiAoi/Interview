@@ -225,3 +225,23 @@ const fn = () =>{
 }
 
 ```
+
+### 求交集
+
+```js
+// before
+let a = [1, 2, 3],b = [4, 3, 2]
+let intersect = a.filter(function(item) {
+  return b.indexOf(item) > -1
+})
+
+// after
+let a = new Set([1, 2, 3]),b = new Set([4, 3, 2])
+let intersect = new Set([...a].filter(x => b.has(x)))
+
+// 并集
+let union = new Set([...a, ...b])
+
+// 差集
+let difference = new Set([...a].filter(x => !b.has(x)))
+```
